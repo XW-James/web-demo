@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>box</title>
+		<style>
+			section {
+				margin-top: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			// dom.style.width
+			// dom.currentStyle.width
+			// window.getComputedStyle(dom).width
+			// dom.getBoundingClictRect(dom).width
+			
+			// BFC
+		</script>
+	
+		<!-- 父元素高度 -->
+		<section id="sec">
+			<style>
+				#sec {
+					background: red;
+					/*BFC*/
+					overflow: hidden;
+				}
+				.child {
+					height: 100px;
+					margin-top: 10px;
+					background: green;
+				}
+			</style>
+			<article class="child">
+				
+			</article>
+		</section>
+
+		<!-- BFC垂直方向边距重叠 -->
+		<section id="margin">
+			<style>
+				#margin {
+					background: yellow;
+					overflow: hidden;
+				}
+				#margin p {
+					margin: 5px auto 25px;
+					background: red;;
+				}
+			</style>
+			<p>1</p>
+			<div style="overflow: hidden;">
+				<p>2</p>
+			</div>
+			<p>3</p>
+		</section>
+
+		<!-- float边距 -->
+		<section id="layout">
+			<style>
+				#layout {
+					background: red;
+				}
+				#layout .left {
+					float: left;
+					width: 100px;
+					height: 100px;
+					background: green;
+				}
+				#layout .right {
+					height: 110px;
+					background: yellow;
+					/*BFC*/
+					overflow: auto;    
+				}
+			</style>
+			<div class="left"></div>
+			<div class="right"></div>
+		</section>
+
+		<section id="float">
+			<style>
+				#float {
+					background: red;
+
+					/*选一*/
+					float: left;
+					/*overflow: auto;*/
+				}
+				#float .float {
+					float: left;
+					font-size: 30px;
+				}
+			</style>
+			<div class="float">浮动元素</div>
+		</section>
+	</body>
+</html>

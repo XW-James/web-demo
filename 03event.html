@@ -3,11 +3,21 @@
 	<head>
 		<meta charset="utf-8">
 		<title>event</title>
-		<style>
-			
-		</style>
 	</head>
 	<body>
-
+		<div id="ev"></div>
 	</body>
+	<script>
+		// event.preventDefault()
+		// event.stotPropagation()
+
+		var ev = document.getElementById("ev")
+		var event = new Event('custom')
+
+		ev.addEventListener('custom', function() {
+			console.log('test dispach')
+		})
+		ev.dispatchEvent(event)
+
+	</script>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+
+	</body>
+	<script>
+		function isArray(a) {
+		   Array.isArray ? Array.isArray(a) : Object.prototype.toString.call(a) === '[object Array]';
+		}
+
+
+		// 单线程   任务队列   事件循环
+		for(var i=0;i<5;i++) {
+			console.log(i)
+		}
+		for(var i=0;i<5;i++) {
+			setTimeout(function() {
+				console.log(i)
+			},1000)
+		}
+
+		
+	</script>
+</html>

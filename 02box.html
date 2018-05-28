@@ -16,7 +16,12 @@
 			// window.getComputedStyle(dom).width
 			// dom.getBoundingClictRect(dom).width
 			
-			// BFC
+			// BFC  https://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html
+			// overflow不为visible
+			// float不为none
+			// position: absolute  fixed
+			// display: inline-block  table   table-cell  flex  inline-flex grid  inline-grid
+			// 创建了块格式化上下文的元素中的所有内容都会被包含到该BFC中
 		</script>
 	
 		<!-- 父元素高度 -->
@@ -95,6 +100,18 @@
 				}
 			</style>
 			<div class="float">浮动元素</div>
+		</section>
+
+		<section>
+			<style>
+			.box {width:210px;border: 1px solid #000;float: left;}
+			.img {width: 100px;height: 100px;background: #696;float: left;}
+			.info {background: #ccc;color: #fff;}
+			</style>
+			<div class="box">
+			    <div class="img">image</div>
+			    <p class="info">信息信息信息信息信息信123212息信息信息信息信息信息信</p>
+			</div>
 		</section>
 	</body>
 </html>

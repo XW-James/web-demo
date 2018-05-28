@@ -3,9 +3,23 @@
 	<head>
 		<meta charset="utf-8">
 		<title>event</title>
-		<style>
-			
-		</style>
+		<script>
+			// new过程
+			// 创建新对象，继承prototype。
+			// 执行构造函数，上下文（this）指向新实例
+			// 返回对象
+
+			function Parent() {
+				this.name = 'james'
+				this.play = [1,2,3]
+			}
+			function Child() {
+				Parent.call(this)
+				this.type = 'c-type'
+			}
+			Child.prototype = Object.creat(Parent.prototype)
+			Child.prototype.constructor = Child
+		</script>
 	</head>
 	<body>
 

@@ -4,8 +4,99 @@
 		<meta charset="utf-8">
 		<title></title>
 		<script>
+			// 数列 1 1 2 3 5 8 13
+			function a(n) {
+				if(n<2) {
+					return 1
+				}
+				return a(n-1) + a(n-2)
+			}
+
+			// 冒泡排序
+			function maopao(arr) {
+				for(var i=0;i<arr.length;i++) {
+					for(var j=0;j<arr.length-i;j++) {
+						toCon(j,j+1)
+					}
+				}
+				function toCon(prev,next) {
+					var temp = ''
+					if(arr[prev]>arr[next]) {
+						arr[temp] = arr[prev]
+						arr[prev] = arr[next]
+						arr[next] = arr[temp]
+					}
+				}
+
+				return arr;
+			}
+
+			// 快速排序  https://segmentfault.com/a/1190000009426421
+			var quickSort = function(arr) {
+			    if (arr.length <= 1) { return arr; }
+			    var pivotIndex = Math.floor(arr.length / 2);   //基准位置（理论上可任意选取）
+			    var pivot = arr.splice(pivotIndex, 1)[0];  //基准数
+			    var left = [];
+			    var right = [];
+			    for (var i = 0; i < arr.length; i++){
+			        if (arr[i] < pivot) {
+			            left.push(arr[i]);
+			        } else {
+			            right.push(arr[i]);
+			        }
+			    }
+			    return quickSort(left).concat([pivot], quickSort(right));  //链接左数组、基准数构成的数组、右数组
+			};
 
 
+			// 选择排序 - 简单选择   https://segmentfault.com/a/1190000009366805
+			function jdxz(arr) {
+				if(arr.length == 1) {
+					return arr
+				}
+				var iMin = arr[0]
+				var iIndex = 0
+				for(var i=0;i<arr.length;i++) {
+					if(arr[i]<iMin) {
+						iMin = 	arr[i]
+						iIndex = i
+					}
+				}
+
+				var prev = arr.splice(iIndex,1)
+				return prev.concat(jdxz(arr))
+			}
+
+
+			function selectionSort(arr) {
+			    var len = arr.length;
+			    var minIndex, temp;
+			    for (var i = 0; i < len - 1; i++) {
+			        minIndex = i;
+			        for (var j = i + 1; j < len; j++) {
+			            if (arr[j] < arr[minIndex]) {     // 寻找最小的数
+			                minIndex = j;                 // 将最小数的索引保存
+			            }
+			        }
+			        temp = arr[i];
+			        arr[i] = arr[minIndex];
+			        arr[minIndex] = temp;
+			    }
+			    return arr;
+			}
+
+			// 数组去重
+			function qc(arr) {
+				var result = []
+				var obj = {}
+				for(var i=0;i<arr.length;i++) {
+					if(!obj(arr[i])) {
+						result.push(arr[i])
+						obj(arr[i]) = 1
+					}
+				}
+				return result
+			}
 
 		</script>
 	</head>

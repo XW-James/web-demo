@@ -11,8 +11,19 @@
 
 	</body>
 	<script>
+		// isArray
 		function isArray(a) {
 		   Array.isArray ? Array.isArray(a) : Object.prototype.toString.call(a) === '[object Array]';
+		}
+
+		// Trim
+		function Trim(str) {
+		  return str.replace(/(^\s*)|(\s*$)/g, "");
+		}
+		if (!String.prototype.trim){
+			String.prototype.trim = function () {
+			    return this.replace(/(^[\s\n\t]+|[\s\n\t]+$)/g, "");
+			}
 		}
 
 
@@ -26,6 +37,34 @@
 			},1000)
 		}
 
+		// https://stackoverflow.com/questions/2272902/how-can-i-make-var-a-add23-5-work?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+		//  add(1)(2)(3)
+		var add = function(a){
+		    return function(b){
+		        return function(c){
+		            return a+b+c;
+		        };
+		    };
+		};
 		
+
+		function add () {
+		    var args = [].slice.call(arguments);
+
+		    var fn = function () {
+		        var arg_fn = [].slice.call(arguments);
+		        return add.apply(null, args.concat(arg_fn));
+		    }
+
+		    fn.valueOf = function() {
+		        return args.reduce((a, b) => a + b);
+		    }
+		    return fn;
+		}
+
+		// Object.assign只能深拷贝第一层,  对象多层嵌套是不能用
+		// Json.parse(Json.stringify(obj))   /   递归循环
+
+
 	</script>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>promise</title>
+	</head>
+	<body>
+		<div>
+			<!-- http://efe.baidu.com/blog/promises-anti-pattern/ -->
+			<!-- https://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html -->
+		</div>
+	</body>
+	<script>
+		doSomething().then(function () {
+		    return doSomethingElse();
+		})；
+
+		doSomethin().then(functiuoin () {
+		    doSomethingElse();
+		});
+
+		doSomething().then(doSomethingElse());
+
+		doSomething().then(doSomethingElse);
+
+
+		
+
+		function example1() {
+		  doSomething().then(function () {
+		      return doSomethingElse();
+		  }).then(finalHandler);
+		}
+
+		function example2() {
+		   doSomething().then(function () {
+		      doSomethingElse();
+		  }).then(finalHandler); 
+		}
+
+		function example3() {
+		  doSomething().then(doSomethingElse())
+		      .then(finalHandler);
+		}
+
+		function example4() {
+		  doSomething().then(doSomethingElse)
+		      .then(finalHandler);
+		}
+
+		
+
+
+	</script>
+</html>
